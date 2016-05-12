@@ -6,7 +6,7 @@ public class RandomNumberGenerator {
 
 	public static void main(String[] args) {
 		Random r=new Random();
-		int value=27;
+		int value=32;
 		int ar[]=new int[value];
 		int sum=0;
 		for(int i=0;i<value;i++){
