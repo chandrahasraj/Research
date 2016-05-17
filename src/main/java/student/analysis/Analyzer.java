@@ -35,7 +35,7 @@ public class Analyzer extends Constants {
 	public static void main(String[] args) throws IOException, ParseException {
 		List<Analyzer> objects = new ArrayList<>();
 		for (File f : directory.listFiles()) {
-			 if (!f.getName().startsWith(".")) {
+			 if (!f.getName().startsWith(".") && !f.isDirectory()) {
 			Analyzer obj = new Analyzer(f.getName().substring(0, f.getName().length() - 4));
 			generateMagAndDeg(f, obj);
 			System.out.println(f.getName());
@@ -194,11 +194,11 @@ public class Analyzer extends Constants {
 			break;
 		}
 		case "D_Data":{
-			if(deg>315 || deg <=45)
+			if(deg<=90)
 				first_quadrant=addToMap(first_quadrant,mag);
-			else if(deg>45 && deg<=135)
+			else if(deg>90 && deg<=180)
 				second_quadrant=addToMap(second_quadrant,mag);
-			else if(deg>135 && deg<=225)
+			else if(deg>180 && deg<=270)
 				third_quadrant=addToMap(third_quadrant,mag);
 			else
 				fourth_quadrant=addToMap(fourth_quadrant,mag);
@@ -238,11 +238,11 @@ public class Analyzer extends Constants {
 			break;
 		}
 		case "AD_Dat":{
-			if(deg>300 || deg <=30)
+			if(deg<=90)
 				first_quadrant=addToMap(first_quadrant,mag);
-			else if(deg>30 && deg<=120)
+			else if(deg>90 && deg<=180)
 				second_quadrant=addToMap(second_quadrant,mag);
-			else if(deg>120 && deg<=210)
+			else if(deg>180 && deg<=270)
 				third_quadrant=addToMap(third_quadrant,mag);
 			else
 				fourth_quadrant=addToMap(fourth_quadrant,mag);
